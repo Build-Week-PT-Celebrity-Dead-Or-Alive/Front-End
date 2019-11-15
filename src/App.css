@@ -2,21 +2,44 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.sign-up{
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: flex-start;
+  margin: 10px;
   color: white;
 }
 
-.App-link {
-  color: #09d3ac;
+.input-form{
+  width: 95%;
+  height: 25px;
+  margin: 7px;
+}
+
+.submit-button{
+  cursor: pointer;
+  height: 50px;
+  font-size: 25px;
+  margin: 0 auto;
+  width: 200px;
+  background: #E45641;
+  color: #5D4C46;
+  border: 1px solid #5D4C46;
+  border-radius: 20px;
+  box-shadow: 10px 10px 5px -4px rgba(0,0,0,0.45);
+  font-family: 'SuperMercado One', cursive;
+}
+
+.try-again-button{
+  cursor: pointer;
+  height: 50px;
+  font-size: 25px;
+  margin: 0 auto;
+  width: 40%;
+  box-shadow: 10px 10px 5px -4px rgba(0,0,0,0.45);
+  background: #F1A94E;
+  color: #5D4C46;
+  border: 1px solid #5D4C46;
+  border-radius: 20px;
+  font-family: 'SuperMercado One', cursive;
 }
