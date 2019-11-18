@@ -6,7 +6,7 @@ export function getToken() {
 
 export default function () {
   return axios.create({
-    baseURL: "celeb-death-status.herokuapp.com/api",
+    baseURL: "http://celeb-death-status.herokuapp.com/api",
     headers: {
       Authorization: getToken(),
     }

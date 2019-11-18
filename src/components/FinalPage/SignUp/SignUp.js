@@ -1,13 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import AxiosWithAuth from '../../Utilities/AxiosWithAuth';
-import { sign } from 'crypto';
 
 
-export default function SignUp() {
+export default function SignUp(props) {
   const [error, setError] = useState();
   const [signUp, setSignUp]= useState({
-    username: '',
-    password: '',
+    username: 'dani',
+    password: '123'
   });
 
   const handleChange = e => {
@@ -21,30 +20,39 @@ export default function SignUp() {
     e.preventDefault();
 
     AxiosWithAuth()
-      .post()
-      .then()
-      .catch()
+      .post("/register", signUp)
+      .then(result => {
+        localStorage.setItem("token", result.data.token)
+        // props.history.push("/login")
+        // console.log("User has registered", result.data)
+      })
+      .catch(err => {
+        // setError(err.response.data.message)
+        // console.log('Error Signup', err)
+      })
   }
   return (
     <div>
-      <p>Hi from SignUp!</p>
       <h1>Join Celebrity Dead or Alive!</h1>
-        <form>
+        <form onSubmit={handleSubmit}>
+          {error && <div>{error}</div>}
           <input 
             type='text'
             name='username'
             placeholder='Username'
             // value and onChange
             value={signUp.username}
+            onChange={handleChange}
           />
           <input
             type='password'
             name='password'
             placeholder='Password'
             // value and onChange
-            value={signUp.password} 
+            value={signUp.password}
+            onChange={handleChange} 
           />
-          
+
           <button type='submit'>Sign Up</button>
         </form>
     </div>
