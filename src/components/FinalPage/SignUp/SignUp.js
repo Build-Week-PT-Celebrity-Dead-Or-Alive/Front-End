@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import AxiosWithAuth from '../../Utilities/AxiosWithAuth';
+import AxiosWithAuth from '../../../Utilities/AxiosWithAuth';
 
 
 export default function SignUp(props) {
   const [error, setError] = useState();
   const [signUp, setSignUp]= useState({
-    username: 'dani',
-    password: '123'
+    username: '',
+    password: ''
   });
 
   const handleChange = e => {
@@ -22,12 +22,12 @@ export default function SignUp(props) {
     AxiosWithAuth()
       .post("/register", signUp)
       .then(result => {
-        localStorage.setItem("token", result.data.token)
-        // props.history.push("/login")
-        // console.log("User has registered", result.data)
+        // localStorage.setItem("token", result.data.token)
+        props.history.push("/login")
+        console.log("User has registered", result.data)
       })
       .catch(err => {
-        // setError(err.response.data.message)
+        setError(err.response)
         // console.log('Error Signup', err)
       })
   }
