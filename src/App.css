@@ -42,4 +42,7 @@
   border: 1px solid #5D4C46;
   border-radius: 20px;
   font-family: 'SuperMercado One', cursive;
+
+body{
+  background-color: #F2EDD8;
 }
