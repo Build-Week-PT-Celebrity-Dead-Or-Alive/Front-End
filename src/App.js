@@ -9,6 +9,7 @@ import './Fonts.css';
 function App() {
   
   return (
+    <>
     <main>
         <Route exact path="/final" component={Final}/>
     </main>
@@ -23,6 +24,7 @@ function App() {
 
       </Route>
     </div>
+    </>
   );
 }
 
