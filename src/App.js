@@ -1,5 +1,8 @@
 import React from 'react';
-import logo from './logo.svg';
+
+import Nav from './components/Nav';
+
+import SignUp from './components/FinalPage/SignUp/SignUp';
 import './App.css';
 import {Link, Route} from 'react-router-dom';
 import LandingPage from './components/LandingPage/LandingPage';
