@@ -22,7 +22,6 @@ export default function SignUp(props) {
     AxiosWithAuth()
       .post("/register", signUp)
       .then(result => {
-        // localStorage.setItem("token", result.data.token)
         props.history.push("/login")
         console.log("User has registered", result.data)
       })

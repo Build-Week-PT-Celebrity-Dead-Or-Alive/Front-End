@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 // Instead of importing axios, we'll import AxiosWithAuth, axios can
 //   be removed
-import AxiosWithAuth from '../../Utilities/AxiosWithAuth';
+import AxiosWithAuth from '../../../Utilities/AxiosWithAuth';
 
 // Start your new function and export it
 function Account(props) {
