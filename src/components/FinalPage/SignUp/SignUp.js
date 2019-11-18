@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import AxiosWithAuth from '../../../Utilities/AxiosWithAuth';
+import { Col, Button, Form, FormGroup, Label, Input } from 'reactstrap';
+
+import '../../../App.css';
 
 
 export default function SignUp(props) {
@@ -31,11 +34,23 @@ export default function SignUp(props) {
       })
   }
   return (
-    <div>
+    <div className='sign-up-wrapper'>
       <h1>Join Celebrity Dead or Alive!</h1>
-        <form onSubmit={handleSubmit}>
-          {error && <div>{error}</div>}
-          <input 
+        <p>Sign up today to save and compete for TOP SCORE!</p>
+      <Form
+        className='sign-up-form' 
+        onSubmit={handleSubmit}>
+
+        {error && <div className="error">{error}</div>}
+
+      <FormGroup row>
+        <Label 
+          for="username" 
+          sm={2}>
+            Username
+        </Label>
+        <Col sm={10}>
+          <Input 
             type='text'
             name='username'
             placeholder='Username'
@@ -43,7 +58,16 @@ export default function SignUp(props) {
             value={signUp.username}
             onChange={handleChange}
           />
-          <input
+        </Col>
+      </FormGroup>
+      <FormGroup row>
+        <Label 
+          for="password" 
+          sm={2}>
+            Password
+        </Label>
+        <Col sm={10}>
+          <Input 
             type='password'
             name='password'
             placeholder='Password'
@@ -51,9 +75,10 @@ export default function SignUp(props) {
             value={signUp.password}
             onChange={handleChange} 
           />
-
-          <button type='submit'>Sign Up</button>
-        </form>
+        </Col>
+      </FormGroup>
+      <Button className='sign-up-btn' type='submit'>Sign Up</Button>
+      </Form>
     </div>
   )
 }

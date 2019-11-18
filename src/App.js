@@ -18,7 +18,7 @@ function App() {
   const signedIn = getToken();
   return (
     <div className="App">
-      <nav>
+      <nav className="nav-bar">
         <Link to='/landingpage'>Home</Link>
         {!signedIn && <Link to='/signup'>Sign-Up</Link>}
         {signedIn && <Link to='/account'>My Account</Link>}
