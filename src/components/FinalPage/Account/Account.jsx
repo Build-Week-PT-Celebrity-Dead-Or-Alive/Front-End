@@ -6,38 +6,40 @@ import AxiosWithAuth from '../../../Utilities/AxiosWithAuth';
 // Start your new function and export it
 function Account(props) {
 	// Create initial State with useState
-	const [user, setUser] = useState({
-		username: "",
-		email: "",
-	})
+	// const [user, setUser] = useState({})
+
+	const [users, setUsers] = useState([])
 
     // Create a side effect with useEffect
-	useEffect(() => {
-		// Make that axios call using AxiosWithAuth
-        AxiosWithAuth()
-            .get("/users/:id")
-			.then(result => {
+		useEffect(() => {
+			// Make that axios call using AxiosWithAuth
+			AxiosWithAuth()
+				.get("/protected/users")
+				.then(result => {
 				// set user to an object
-				setUser({
-					username: result.data.username,
+				setUsers(result.data)
+				// console.log('USER RESULT', result.data)
 				})
-			})
-			.catch(error => {
-                console.log(error)
-                throw(error)
-			})
-	}, [])
+				.catch(error => {
+							console.log(error)
+							throw(error)
+				})
+		}, [])
     
     // Build out the Account Page for Display
-	return (
-		<div className="account-wrapper">
-            <div className="user">
-			    <h1>My Quiz Account</h1>
-
-                <div className="account-row">Username: {user.username}</div>
-            </div>
-        </div>
-        )
-    }
+		return (
+				<>
+						<div className="account-wrapper">
+							<h1>Score List:</h1>
+							{users.map(user => (
+									<div key={user.id}className="user">
+											<div className="account-row">Username: {user.username}</div>
+											<div className='user-score'>Score: {user.score}</div>
+									</div>
+							))}
+						</div>
+				</>
+		)
+}
 
 export default Account;

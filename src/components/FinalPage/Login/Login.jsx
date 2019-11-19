@@ -49,7 +49,9 @@ function Login(props) {
 
     return (
         <>
-            <p>Hi from Login!</p>  //Don't forget to remove this line later!!!
+            {/* Don't forget to remove this line later!!! */}
+            <p>Hi from Login!</p>  
+
             <form onSubmit={handleSubmit}>
                 {/* Inside the component, we can write a simple ternary that says
                     if error exists or something is in there that is undefined, show
