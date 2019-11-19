@@ -6,7 +6,7 @@ import AxiosWithAuth from '../../../Utilities/AxiosWithAuth';
 // Start your new function and export it
 function Account(props) {
 	// Create initial State with useState
-	// const [user, setUser] = useState({})
+	const [user, setUser] = useState({})
 
 	const [users, setUsers] = useState([])
 
@@ -29,12 +29,16 @@ function Account(props) {
     // Build out the Account Page for Display
 		return (
 				<>
+				{/* want to display account that is logged in with score */}
 						<div className="account-wrapper">
 							<h1>Score List:</h1>
+
 							{users.map(user => (
 									<div key={user.id}className="user">
 											<div className="account-row">Username: {user.username}</div>
-											<div className='user-score'>Score: {user.score}</div>
+											<div className="account-row">Score: {user.score}</div>
+											{/* trying to sort scores by highest to lowest */}
+											{/* <div className='user-score'>Score: {user.score.sort((a, b) => b - a).join(', ')}</div> */}
 									</div>
 							))}
 						</div>
