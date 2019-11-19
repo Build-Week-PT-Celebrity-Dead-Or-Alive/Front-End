@@ -1,7 +1,30 @@
 .App {
   text-align: center;
+  background: #F2EDD8;
+  width: 98%;
+  height: 820px;
 }
 
+
+.nav-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 35px;
+}
+
+.nav-bar a {
+  text-decoration: none;
+  font-size: 18px;
+  color: #44B3C2;
+  font-weight: bolder;
+  text-shadow: #7B8D8E 3px 3px 5px;
+}
+
+.error {
+	color: red;
+	margin-bottom: 20px;
+}
 .sign-up{
   display: flex;
   flex-direction: column;
@@ -44,6 +67,12 @@
   font-family: 'SuperMercado One', cursive;
 }
 
-body{
-  background-color: #F2EDD8;
+.sign-up-form {
+  width: 635px;
+  margin-left: 600px;
+  padding: 25px;
+}
+
+.sign-up-btn {
+  margin-left: 95px;
 }

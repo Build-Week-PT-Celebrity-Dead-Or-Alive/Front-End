@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 // Instead of importing axios, we'll import AxiosWithAuth, axios can be removed
-import AxiosWithAuth from '../../Utilities/AxiosWithAuth';
+import AxiosWithAuth from '../../../Utilities/AxiosWithAuth';
 
 function Login(props) {
     // Set up error state for error component/message
@@ -42,43 +42,45 @@ function Login(props) {
                 props.history.push("/account")
             })
             .catch(error => {
-                setError(err.response.data.message)
+                setError(error.response.data.message)
             })
     }
 
 
     return (
-        <p>Hi from Login!</p>  //Don't forget to remove this line later!!!
-        <form onSubmit={handleSubmit}>
-            {/* Inside the component, we can write a simple ternary that says
-                if error exists or something is in there that is undefined, show
-                a div with className of error, and display the error */}
-            {error && <div className="error">{error}</div>}
+        <>
+            <p>Hi from Login!</p>  //Don't forget to remove this line later!!!
+            <form onSubmit={handleSubmit}>
+                {/* Inside the component, we can write a simple ternary that says
+                    if error exists or something is in there that is undefined, show
+                    a div with className of error, and display the error */}
+                {error && <div className="error">{error}</div>}
 
-            {/* Create some input fields and a button for the form */}
-            <input 
-                type="text"
-                autoComplete="username"
-                name="username"
-                placeholder="Username"
-                // Attach these values and the handleChange function to 
-                //    each one of our inputs
-                value={data.username}
-                onChange={handleChange}
-                />
+                {/* Create some input fields and a button for the form */}
+                <input 
+                    type="text"
+                    autoComplete="username"
+                    name="username"
+                    placeholder="Username"
+                    // Attach these values and the handleChange function to 
+                    //    each one of our inputs
+                    value={data.username}
+                    onChange={handleChange}
+                    />
 
-            <input 
-                type="password"
-                autoComplete="current-password"
-                name="password"
-                placeholder="Password"
-                // Attach these values and the handleChange function to 
-                //    each one of our inputs
-                value={data.password}
-                onChange={handleChange}
-                />
-            <button type="submit">Login</button>
-        </form>
+                <input 
+                    type="password"
+                    autoComplete="current-password"
+                    name="password"
+                    placeholder="Password"
+                    // Attach these values and the handleChange function to 
+                    //    each one of our inputs
+                    value={data.password}
+                    onChange={handleChange}
+                    />
+                <button type="submit">Login</button>
+            </form>
+        </>
     )
 }
 export default Login;
