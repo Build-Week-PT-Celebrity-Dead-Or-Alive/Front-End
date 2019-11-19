@@ -5,6 +5,10 @@
   height: 820px;
 }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 8f63049e1af966ab52b90eb9ee027b1e5f0d05aa
 .nav-bar {
   display: flex;
   flex-direction: row;
@@ -24,7 +28,10 @@
 	color: red;
 	margin-bottom: 20px;
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 8f63049e1af966ab52b90eb9ee027b1e5f0d05aa
 .sign-up{
   display: flex;
   flex-direction: column;
