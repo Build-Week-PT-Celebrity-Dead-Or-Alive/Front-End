@@ -5,6 +5,7 @@
   height: 820px;
 }
 
+
 .nav-bar {
   display: flex;
   flex-direction: row;
@@ -23,6 +24,47 @@
 .error {
 	color: red;
 	margin-bottom: 20px;
+}
+.sign-up{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 10px;
+  color: white;
+}
+
+.input-form{
+  width: 95%;
+  height: 25px;
+  margin: 7px;
+}
+
+.submit-button{
+  cursor: pointer;
+  height: 50px;
+  font-size: 25px;
+  margin: 0 auto;
+  width: 200px;
+  background: #E45641;
+  color: #5D4C46;
+  border: 1px solid #5D4C46;
+  border-radius: 20px;
+  box-shadow: 10px 10px 5px -4px rgba(0,0,0,0.45);
+  font-family: 'SuperMercado One', cursive;
+}
+
+.try-again-button{
+  cursor: pointer;
+  height: 50px;
+  font-size: 25px;
+  margin: 0 auto;
+  width: 40%;
+  box-shadow: 10px 10px 5px -4px rgba(0,0,0,0.45);
+  background: #F1A94E;
+  color: #5D4C46;
+  border: 1px solid #5D4C46;
+  border-radius: 20px;
+  font-family: 'SuperMercado One', cursive;
 }
 
 .sign-up-form {
