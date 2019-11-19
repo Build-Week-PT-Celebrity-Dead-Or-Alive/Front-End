@@ -1,15 +1,18 @@
 import React from 'react';
-
-import Nav from './components/Nav';
-
-import SignUp from './components/FinalPage/SignUp/SignUp';
+import './App.css';
+import Final from './components/FinalPage/FinalPage';
 import './App.css';
 import {Link, Route} from 'react-router-dom';
 import LandingPage from './components/LandingPage/LandingPage';
 import './Fonts.css';
 
 function App() {
+  
   return (
+    <>
+    <main>
+        <Route exact path="/final" component={Final}/>
+    </main>
     <div className="App">
       <Route exact path='/' render={(props) =>{
         return(<LandingPage {...props}/>);
@@ -21,6 +24,7 @@ function App() {
 
       </Route>
     </div>
+    </>
   );
 }
 
