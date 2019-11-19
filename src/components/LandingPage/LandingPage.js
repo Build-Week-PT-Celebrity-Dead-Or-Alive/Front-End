@@ -3,6 +3,7 @@ import {Route, Link} from 'react-router-dom';
 import styled from 'styled-components';
 import Header from './header/Header';
 import QuizLauncher from './QuizLauncher/QuizLauncher';
+import CelebsForLanding from './CelebsForLanding/CelebsForLanding';
 
 // Written by Gabe Lopez
 const LandingDiv = styled.div`
@@ -15,7 +16,7 @@ export default function LandingPage(props){
         <div>
             <Header />
             <QuizLauncher {...props}/>
-            {/* celebs in here later */}
+            <CelebsForLanding />
         </div>
     );
 }
