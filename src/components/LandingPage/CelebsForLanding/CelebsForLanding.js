@@ -34,7 +34,6 @@ const CelebContainer = styled.div`
 //http://celeb-death-status.herokuapp.com/api/celebs
 export default function CelebsForLanding(props){
     const [celebs, setCelebs] = useState([]);
-    let randomEntries = [];
     
     useEffect(() => {        
         axios.get('http://celeb-death-status.herokuapp.com/api/celebs')
