@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { Link, Route, withRouter } from 'react-router-dom';
 
 // utilities
@@ -28,7 +27,6 @@ function App() {
         <Route exact path="/final" component={Final}/>
     </main>
     <div className="App">
-
       <nav className="nav-bar">
         <Link to='/landingpage'>Home</Link>
         {!signedIn && <Link to='/signup'>Sign-Up</Link>}
