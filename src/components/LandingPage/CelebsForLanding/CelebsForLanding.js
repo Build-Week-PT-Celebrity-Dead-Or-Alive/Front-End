@@ -31,35 +31,36 @@ const CelebContainer = styled.div`
 
 //http://celeb-death-status.herokuapp.com/api/celebs
 export default function CelebsForLanding(props){
-    const [celebs, setCelebs] = useState([]);
+    let celebs = [];
     const [celebApi, setCelebApi] = useState([]);
     let randomEntries = [];
     
     const pickCelebs = () => {
         for(let i = 0; i < 3; i++){
-            randomEntries.push(Math.floor(Math.random() * 81));
+            randomEntries.push(Math.floor(Math.random() * 80));
         }
-        console.log('celebap', celebApi[0]);
+        console.log('celebap', celebApi);
         console.log('random array',randomEntries);
         console.log('Celeb', celebApi[0]);
         console.log('Celeb with random', celebApi[randomEntries[0]])
-        setCelebs([celebApi[randomEntries[0]], celebApi[randomEntries[1]], celebApi[randomEntries[3]]]);
+        celebs = [celebApi[1], celebApi[4], celebApi[5]];  
+        console.log(celebs);
     }
 
     useEffect(() => {        
         axios.get('http://celeb-death-status.herokuapp.com/api/celebs')
             .then(results => {setCelebApi(results.data)})
-            .catch(err => {console.log(`There was an error: ${err}`)})
-        
+            .catch(err => {console.log(`There was an error: ${err}`)})  
      }, []);
 
-    useEffect(() => {
-        pickCelebs();
-    }, [celebApi]); 
+      useEffect(() => {
+          pickCelebs();
+     }, [celebApi]); 
 
     
     return(
         <CelebContainer>
+
         </CelebContainer>
-    )
+    );
 }
