@@ -8,7 +8,9 @@ const Celeb = styled.div`
 `;
 
 const CelebContainer = styled.div`
-
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
 `;
 
 /*
@@ -31,36 +33,28 @@ const CelebContainer = styled.div`
 
 //http://celeb-death-status.herokuapp.com/api/celebs
 export default function CelebsForLanding(props){
-    let celebs = [];
-    const [celebApi, setCelebApi] = useState([]);
+    const [celebs, setCelebs] = useState([]);
     let randomEntries = [];
     
-    const pickCelebs = () => {
-        for(let i = 0; i < 3; i++){
-            randomEntries.push(Math.floor(Math.random() * 80));
-        }
-        console.log('celebap', celebApi);
-        console.log('random array',randomEntries);
-        console.log('Celeb', celebApi[0]);
-        console.log('Celeb with random', celebApi[randomEntries[0]])
-        celebs = [celebApi[1], celebApi[4], celebApi[5]];  
-        console.log(celebs);
-    }
-
     useEffect(() => {        
         axios.get('http://celeb-death-status.herokuapp.com/api/celebs')
-            .then(results => {setCelebApi(results.data)})
+            .then(results => {setCelebs([results.data[Math.floor(Math.random() * 80)],
+                                        results.data[Math.floor(Math.random() * 80)],
+                                        results.data[Math.floor(Math.random() * 80)]])})
             .catch(err => {console.log(`There was an error: ${err}`)})  
      }, []);
-
-      useEffect(() => {
-          pickCelebs();
-     }, [celebApi]); 
 
     
     return(
         <CelebContainer>
-
+            {celebs.map(celeb => {
+                return(
+                    <Celeb>
+                        <h3>{celeb.name}</h3>
+                        <img src={celeb.imageurl}/>
+                    </Celeb> 
+                )
+            })}
         </CelebContainer>
     );
 }
