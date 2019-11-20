@@ -27,6 +27,12 @@ const QuizCardHolder = styled.div`
     align-items: center;
     justify-content: center;
     margin-top: 80px;
+    border: 1px solid black;
+    width: 80%;
+    margin: 0 auto;
+    padding: 30px;
+    border-radius: 65px;
+    height: 80%;
 `;
 
 export default function QuizCard(){
