@@ -29,7 +29,6 @@ class App extends React.Component {
   componentDidMount() {
     axios.get('https://celeb-death-status.herokuapp.com/api/celebs')
         .then(results => {
-          console.log(results.data)
             this.setState({
               celebs:results.data
             })
@@ -59,7 +58,6 @@ class App extends React.Component {
 
   render() {
     let renderQuizCard = () => {
-      console.log("FROM QUIZCARD FUNC:", this.state.celebs)
       if(!this.state.celebs.length){
         return(
           <p>Loading...</p>
@@ -71,7 +69,7 @@ class App extends React.Component {
         );
       }
     }
-    console.log(this.state)
+
     return (
       <div>
       <main>

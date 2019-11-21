@@ -46,15 +46,12 @@ export default function QuizCard({celebs, score, updateScore}){
     function handleChoice(dead){
         if (dead === randomCeleb.dead){
             updateScore();
-            console.log('You got it right!')
+
         }
         setRandomCeleb(celebs[Math.floor(Math.random() * 80)]);
-        console.log('inside the function', celebs)
+
     }
 
-    console.log('outside the function', celebs)
-
-    console.log('this is the random dude', randomCeleb);
 
     return (
         <QuizCardHolder>

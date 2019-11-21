@@ -10,9 +10,8 @@ export default function TimerValue(){
         var Countdown = setInterval(function(){
             --tempTime;
             setTime(tempTime);
-            console.log(time);
-            if (time === 0){
-                tempTime = 0;
+            if (tempTime === 0){
+                setTime(0);
             }
         }, 600)
     }
