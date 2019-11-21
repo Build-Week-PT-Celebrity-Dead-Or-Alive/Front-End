@@ -14,6 +14,7 @@ import Logout from './components/FinalPage/Logout';
 import './App.css';
 import Final from './components/FinalPage/FinalPage';
 import './Fonts.css';
+import QuizCard from './components/QuizPage/QuizCard/QuizCard';
 
 function App() {
 
@@ -45,7 +46,7 @@ function App() {
         return(<LandingPage {...props}/>);
       }}/>
       <Route path="/quizpage">
-
+        <QuizCard />
       </Route>
       <Route path="finalpage">
 
