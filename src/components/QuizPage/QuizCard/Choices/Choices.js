@@ -20,13 +20,13 @@ const ChoicesContainer = styled.div`
     margin-top: 40px;
 `;
 
-export default function Choices(){
+export default function Choices({handleChoice}){
 
     return (
         <ChoicesContainer>
-            <DeadButton />
+            <DeadButton handleChoice={handleChoice}/>
             <MidText>OR</MidText>
-            <AliveButton />
+            <AliveButton handleChoice={handleChoice}/>
         </ChoicesContainer>
     );
 }

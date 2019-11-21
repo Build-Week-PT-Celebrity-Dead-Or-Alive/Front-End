@@ -12,8 +12,8 @@ const StyledButton = styled.button`
      color:  #F2EDD8; 
 `;
 
-export default function AliveButton(){
+export default function AliveButton({handleChoice}){
     return (
-        <StyledButton><h3>Alive</h3></StyledButton>
+        <StyledButton onClick={() => handleChoice("false")}><h3>Alive</h3></StyledButton>
     )
 }

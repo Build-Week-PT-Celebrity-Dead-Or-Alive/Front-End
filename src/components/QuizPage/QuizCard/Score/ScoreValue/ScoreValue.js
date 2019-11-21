@@ -2,9 +2,8 @@ import React, {useEffect, useState} from 'react';
 import {Route, Link} from 'react-router-dom';
 import styled from 'styled-components';
 
-export default function ScoreValue(){
-    const temp = 1;
+export default function ScoreValue({score}){
     return(
-        <h3>{temp}</h3>
+        <h3>{score}</h3>
     )
 }
