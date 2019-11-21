@@ -13,7 +13,6 @@ import Login from './components/FinalPage/Login/Login';
 import Logout from './components/FinalPage/Logout';
 import Admin from './components/Admin/Admin';
 import Users from './components/Admin/Users';
-import UpdateUsers from './components/Admin/UpdateUsers';
 import './App.css';
 import Final from './components/FinalPage/FinalPage';
 import './Fonts.css';
@@ -44,7 +43,6 @@ function App() {
       <Route exact path='/logout' component={Logout} />
       <ProtectedRoute exact path='/admin' component={Admin} />
       <ProtectedRoute exact path='/users' component={Users} />
-      <ProtectedRoute exact path='/users/:id' component={UpdateUsers} />
 
       <Route exact path='/' render={(props) =>{
         return(<LandingPage {...props}/>);
