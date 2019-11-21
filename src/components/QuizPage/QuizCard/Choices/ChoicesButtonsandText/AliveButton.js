@@ -1,5 +1,5 @@
-import React, {useEffect, useState} from 'react';
-import {Route, Link} from 'react-router-dom';
+import React, { useState } from 'react';
+// import {Route, Link} from 'react-router-dom';
 import styled from 'styled-components';
 
 const StyledButton = styled.button`
@@ -12,8 +12,10 @@ const StyledButton = styled.button`
      color:  #F2EDD8; 
 `;
 
-export default function AliveButton(){
+export default function AliveButton() {
+    const [aliveScore, updateAliveScore] = useState(0)
+
     return (
-        <StyledButton><h3>Alive</h3></StyledButton>
+        <StyledButton onClick={() => updateAliveScore(aliveScore + 1)}>Alive</StyledButton>
     )
 }

@@ -33,7 +33,7 @@ function App() {
         {signedIn && <Link to='/account'>My Account</Link>}
         {signedIn && <Link to='/users'>Users</Link> }
         {!signedIn && <Link to='/login'>Login</Link>}
-        <Link to='/logout'>Logout</Link>
+        {signedIn && <Link to='/logout'>Logout</Link>}
       </nav>
 
       <Route exact path='/landingpage' component={LandingPage} />

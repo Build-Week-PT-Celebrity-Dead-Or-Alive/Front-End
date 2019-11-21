@@ -1,5 +1,5 @@
-import React, {useEffect, useState} from 'react';
-import {Route, Link} from 'react-router-dom';
+import React, { useState } from 'react';
+// import {Route, Link} from 'react-router-dom';
 import styled from 'styled-components';
 
 const StyledButton = styled.button`
@@ -13,8 +13,9 @@ const StyledButton = styled.button`
 `;
 
 
-export default function DeadButton(){
+export default function DeadButton() {
+    const [deadScore, updateDeadScore] = useState(0)
     return(
-        <StyledButton><h3>Dead</h3></StyledButton>
+        <StyledButton onClick={() => updateDeadScore(deadScore - 1)}>Dead</StyledButton>
     )
 }

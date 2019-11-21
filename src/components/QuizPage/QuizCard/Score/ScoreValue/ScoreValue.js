@@ -1,10 +1,13 @@
-import React, {useEffect, useState} from 'react';
-import {Route, Link} from 'react-router-dom';
-import styled from 'styled-components';
+import React, { useState } from 'react';
+// import { Route, Link } from 'react-router-dom';
+// import styled from 'styled-components';
 
-export default function ScoreValue(){
-    const temp = 1;
+export default function ScoreValue(props) {
+    const [score, updateScore] = useState(0);
+
     return(
-        <h3>{temp}</h3>
+        <div className="score">
+            <div className="users-score">{score}</div>
+        </div>
     )
 }
