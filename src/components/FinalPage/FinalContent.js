@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 // import Form from './LoginForm'
+import Login from "./Login/Login";
 import Head from './FinalTitle'
 
 const Body=styled.body`
@@ -37,7 +38,7 @@ const Content = ()=> {
                 <Head/>
                 <h1>You scored<br/>(score)!</h1>
                 <h2>Sign up or log in to keep your score</h2>
-                <Form/>
+                <Login/>
                 <button className="try-again-button">Try Again!</button>
             </Main>
         </Body>
