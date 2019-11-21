@@ -17,12 +17,12 @@ const ScoreContainer = styled.div`
     font-family: 'Lobster', cursive;    
 `;
 
-export default function ScoreDisplay(){
+export default function ScoreDisplay({score}){
     
     return(
         <ScoreContainer>
             <h3>Score:</h3>
-            <ScoreValue />
+            <ScoreValue score={score}/>
         </ScoreContainer>
     )
 }

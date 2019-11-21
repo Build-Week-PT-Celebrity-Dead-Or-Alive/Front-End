@@ -2,8 +2,26 @@ import React, {useEffect, useState} from 'react';
 import {Route, Link} from 'react-router-dom';
 import styled from 'styled-components';
 
-export default function Celebrity(){
+const Celeb = styled.div`
+
+`;
+
+const CelebContainer = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin: 0 20px;
+`;
+
+
+export default function Celebrity({name, imageurl}){
+
     return (
-        <h3>Celeb</h3>
-    )
+        <CelebContainer>
+            <Celeb>
+                <h3>{name}</h3>
+                <img src={imageurl}/>
+            </Celeb> 
+        </CelebContainer>
+    );
 }
