@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 //import axios from "axios";
 
-import AxiosWithAuth from "../../../Utilities/AxiosWithAuth";
+import AxiosWithAuth from "../../Utilities/AxiosWithAuth";
 
 const initialState = {
   name: "",
