@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Form from './LoginForm'
+// import Form from './LoginForm'
 import Head from './FinalTitle'
 
 const Body=styled.body`
