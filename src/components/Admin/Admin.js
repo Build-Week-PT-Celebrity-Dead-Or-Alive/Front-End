@@ -3,7 +3,7 @@ import AxiosWithAuth from '../../Utilities/AxiosWithAuth';
 
 export default function Admin(props) {
   const [users, setUsers] = useState({
-    name: '',
+   username: '',
     password: ''
   })
 
@@ -11,7 +11,10 @@ export default function Admin(props) {
     AxiosWithAuth()
       .get('/protected/users')
       .then(result => {
-        // setUsers()
+        setUsers({
+          username: result.data.username,
+          password: result.data.password
+        })
         console.log('ADMIN RESULTS', result.data)
       })
       .catch(error => {
@@ -23,7 +26,7 @@ export default function Admin(props) {
     <>
     <h1>Admin Page:</h1>
 
-      <div className="user-name">Name: {users.name}</div>
+      <div className="user-name">Name: {users.username}</div>
       <div className="user-pw">Password: {users.password}</div>
     </>
   )

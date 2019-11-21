@@ -34,6 +34,7 @@ export default function UpdateUsers(props) {
       .put(`/protected/users/${user.id}`, user)
       .then(result => {
         props.history.push('/protected/users')
+        console.log('UPDATE USER', result.data)
       })
       .catch(error => {
         console.log('UPDATE USER ERROR', error)

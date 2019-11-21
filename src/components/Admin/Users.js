@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link  } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import AxiosWithAuth from '../../Utilities/AxiosWithAuth';
 
 export default function Users(props) {
@@ -26,6 +26,7 @@ export default function Users(props) {
       .delete(`/protected/users/${id}`)
       .then(result => {
         console.log('User was deleted!')
+        setUsers(users.filter(user => user.id !== id))
       })
       .catch(error => {
         console.log('DELETE ERROR', error)
@@ -38,14 +39,16 @@ export default function Users(props) {
       <h1>Users:</h1>
 
       {users.map(user => (
-        <div key={user.id} className="user-list">
-          <Link 
-            className='user-update' 
-            to={`/protected/users/${user.id}`}>
-              Edit
-          </Link>
-          <div className='user-delete' onClick={(e) => handleDelete(e, user.id)}>Delete</div>
-          <div className='users-name'>Name: {user.name}</div>
+        <div 
+          key={user.id} 
+          className="user-list">
+            <Link className='user-update' to={`/protected/users/${user.id}`}>Edit</Link>
+          <button 
+            className='user-delete' 
+            onClick={(e) => handleDelete(e, user.id)}>
+              Delete
+          </button>
+          <div className='users-name'>Name: {user.username}</div>
           <div className='users-pw'>Password: {user.password}</div>
         </div>
       ))}
