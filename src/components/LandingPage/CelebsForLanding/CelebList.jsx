@@ -7,7 +7,9 @@ import AxiosWithAuth from "../../../Utilities/AxiosWithAuth";
 
 const initialState = {
   name: "",
-  // more state info here
+  imageurl: "",
+  info: "",
+  dead: ""
 };
 
 const CelebList = ({ celebs, updateCelebs }) => {
@@ -17,6 +19,10 @@ const CelebList = ({ celebs, updateCelebs }) => {
   
   const [newCeleb, setNewCeleb] = useState({
     // put some stuff here
+    name: "",
+    imageurl: "",
+    info: "",
+    dead: ""
   });
 
   const editCeleb = celeb => {
@@ -30,7 +36,7 @@ const CelebList = ({ celebs, updateCelebs }) => {
     // think about where will you get the id from...
     // where is is saved right now?
     api()
-      .put(`/api/colors/${celebToEdit.id}`, celebToEdit)
+      .put(`/celebs/${celebToEdit.id}`, celebToEdit)
       .then(result => {
           setEditing(false);
           console.log(celebToEdit);
@@ -41,15 +47,15 @@ const CelebList = ({ celebs, updateCelebs }) => {
     window.location.reload(false);
   };
 
-  const deleteColor = celeb => {
-    // make a delete request to delete this color
+  const deleteCeleb = celeb => {
+    // make a delete request to delete this celeb
     if (window.confirm("Are you SURE you want to DELETE this celebrity?")) {
-      updateCelebs(celeb.filter(celeb => celeb.id !== id));
+      updateCelebs(celebs.filter(celeb => celeb.id !== id));
 
       AxiosWithAuth()
-        .delete(`/api/colors/${color.id}`)
+        .delete(`protected/celebs/${celeb.id}`)
         .then(result => {
-          console.log(`Celeb ${id} deleted`);
+          console.log(`Celebrity ${id} deleted`);
         })
         .catch(error => {
           throw error;
@@ -58,11 +64,11 @@ const CelebList = ({ celebs, updateCelebs }) => {
     }
   };
 
-  const handleNewColor = (event) => {
+  const handleNewCeleb = (event) => {
     event.preventDefault()
 
     AxiosWithAuth()
-      .post("/api/colors", newCeleb)
+      .post(`/celebs/${celeb.id}`, newCeleb)
       .then(result => {
         console.log(newCeleb)
       })
@@ -73,50 +79,53 @@ const CelebList = ({ celebs, updateCelebs }) => {
   }
 
   return (
-    <div className="colors-wrap">
-      <p>colors</p>
+    <div className="celebs-wrap">
+      <p>celebs</p>
       <ul>
-        {colors.map(color => (
-          <li key={color.color} onClick={() => editCeleb(color)}>
+        {celebs.map(celeb => (
+          <li key={celeb.celeb} onClick={() => editCeleb(celeb)}>
             <span>
-              <span className="delete" onClick={e => {
-                    e.stopPropagation();
-                    deleteColor(color)
-                  }
+              <span className="delete" 
+                    onClick={e => {
+                          e.stopPropagation();
+                          deleteCeleb(celeb)
+                        }
                 }>
                   x
               </span>{" "}
-              {color.color}
-            </span>
-            <div
+                {celeb.celeb}
+              </span>
+            {/* <div
               className="color-box"
               style={{ backgroundColor: color.code.hex }}
-            />
+            /> */}
           </li>
         ))}
       </ul>
       {editing && (
         <form onSubmit={saveEdit}>
-          <legend>edit color</legend>
+          <legend>edit celeb</legend>
           <label>
-            color name:
+          celeb name:
             <input
               onChange={e =>
-                setCelebToEdit({ ...celebToEdit, color: e.target.value })
+                setCelebToEdit({ 
+                  ...celebToEdit, 
+                  celeb: e.target.value })
               }
-              value={celebToEdit.color}
+              value={celebToEdit.celeb}
             />
           </label>
           <label>
-            hex code:
+            celeb data:
             <input
               onChange={e =>
                 setCelebToEdit({
                   ...celebToEdit,
-                  code: { hex: e.target.value }
+                  celeb: e.target.value
                 })
               }
-              value={celebToEdit.code.hex}
+              value={celebToEdit.celeb}
             />
           </label>
           <div className="button-row">
@@ -127,15 +136,15 @@ const CelebList = ({ celebs, updateCelebs }) => {
       )}
       <div className="spacer" />
       {/* stretch - build another form here to add a color */}
-      <form onSubmit={handleNewColor}>
+      <form onSubmit={handleNewCeleb}>
         <label>
-          Color Name: 
+        Celeb Name: 
           <input onChange={event => 
                   setNewCeleb({
                     ...newCeleb,
-                    code: {hex: event.target.value}
+                    celeb: event.target.value
                   })}
-                 value={newCeleb.code.hex} />
+                 value={newCeleb.celeb} />
         </label>
       </form>
     </div>
