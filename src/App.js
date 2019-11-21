@@ -17,6 +17,7 @@ import UpdateUsers from './components/Admin/UpdateUsers';
 import './App.css';
 import Final from './components/FinalPage/FinalPage';
 import './Fonts.css';
+import QuizCard from './components/QuizPage/QuizCard/QuizCard';
 
 function App() {
   const signedIn = getToken();
@@ -49,7 +50,7 @@ function App() {
         return(<LandingPage {...props}/>);
       }}/>
       <Route path="/quizpage">
-
+        <QuizCard />
       </Route>
       <Route path="finalpage">
 
