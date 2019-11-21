@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import { Link, Route, withRouter } from 'react-router-dom';
 
 // utilities
@@ -68,7 +68,7 @@ class App extends React.Component {
       }
       else {
         return(
-          <QuizCard celebs={this.state.celebs} score={this.state.score} updateScore={this.updateScore}/>
+          <QuizCard celebs={this.state.celebs} score={this.state.score} updateScore={this.updateScore} />
         );
       }
     }
@@ -84,12 +84,14 @@ class App extends React.Component {
           {!this.signedIn && <Link to='/signup'>Sign-Up</Link>}
           {this.signedIn && <Link to='/account'>My Account</Link>}
           {!this.signedIn && <Link to='/login'>Login</Link>}
-          <Link to='/logout'>Logout</Link>
+          {this.signedIn && <Link to='/admin'>Users</Link>}
+          {this.signedIn && <Link to='/logout'>Logout</Link>}
         </nav>
   
         <Route exact path='/landingpage' component={LandingPage} />
         <Route exact path='/signup' component={SignUp} />
         <ProtectedRoute exact path='/account' component={Account} />
+        <Route exact path='/admin' component={Users} />
         <Route exact path='/login' component={Login} />
         <Route exact path='/logout' component={Logout} />
   

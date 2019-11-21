@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import AxiosWithAuth from '../../Utilities/AxiosWithAuth';
 
 export default function Users(props) {
@@ -42,7 +41,6 @@ export default function Users(props) {
         <div 
           key={user.id} 
           className="user-list">
-            <Link className='user-update' to={`/protected/users/${user.id}`}>Edit</Link>
           <button 
             className='user-delete' 
             onClick={(e) => handleDelete(e, user.id)}>

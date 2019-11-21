@@ -39,7 +39,7 @@ function Login(props) {
                 localStorage.setItem("token", result.data.token)
 
                 // Redirect the user to their account page after logging in
-                props.history.push("/account")
+                props.history.push("/landingpage")
             })
             .catch(error => {
                 setError(error.response.data.message)
@@ -49,8 +49,7 @@ function Login(props) {
 
     return (
         <>
-            {/* Don't forget to remove this line later!!! */}
-            <p>Hi from Login!</p>  
+            <p>Please login to keep track of your score and compete against other players!</p>  
 
             <form onSubmit={handleSubmit}>
                 {/* Inside the component, we can write a simple ternary that says
