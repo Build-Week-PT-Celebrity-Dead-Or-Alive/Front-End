@@ -13,8 +13,8 @@ const StyledButton = styled.button`
 `;
 
 
-export default function DeadButton(){
+export default function DeadButton({handleChoice}){
     return(
-        <StyledButton><h3>Dead</h3></StyledButton>
+        <StyledButton onClick={() => handleChoice("true")}><h3>Dead</h3></StyledButton>
     )
 }

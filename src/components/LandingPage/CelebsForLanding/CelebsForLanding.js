@@ -36,7 +36,7 @@ export default function CelebsForLanding(props){
     const [celebs, setCelebs] = useState([]);
     
     useEffect(() => {        
-        axios.get('http://celeb-death-status.herokuapp.com/api/celebs')
+        axios.get('https://celeb-death-status.herokuapp.com/api/celebs')
             .then(results => {setCelebs([results.data[Math.floor(Math.random() * 80)],
                                         results.data[Math.floor(Math.random() * 80)],
                                         results.data[Math.floor(Math.random() * 80)]])})

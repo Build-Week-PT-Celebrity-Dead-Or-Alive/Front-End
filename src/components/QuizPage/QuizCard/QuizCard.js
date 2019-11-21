@@ -5,6 +5,7 @@ import Choices from './Choices/Choices';
 import ScoreDisplay from './Score/ScoreDisplay';
 import TimerDisplay from './Timer/TimerDisplay';
 import Celebrity from '../../Celebrity/Celebrity';
+import axios from 'axios';
 
 const BottomHalf = styled.div`
     display: flex;
@@ -35,17 +36,35 @@ const QuizCardHolder = styled.div`
     height: 80%;
 `;
 
-export default function QuizCard(){
+export default function QuizCard({celebs, score, updateScore}){
+    const [randomCeleb, setRandomCeleb] = useState({});
+
+    useEffect(() => {
+        setRandomCeleb(celebs[Math.floor(Math.random() * 80)]);
+    } ,[])
+
+    function handleChoice(dead){
+        if (dead === randomCeleb.dead){
+            updateScore();
+            console.log('You got it right!')
+        }
+        setRandomCeleb(celebs[Math.floor(Math.random() * 80)]);
+        console.log('inside the function', celebs)
+    }
+
+    console.log('outside the function', celebs)
+
+    console.log('this is the random dude', randomCeleb);
 
     return (
         <QuizCardHolder>
             <TopHalf>
-                <ScoreDisplay />
-                <Celebrity />
+                <ScoreDisplay score={score}/>
+                <Celebrity imageurl={randomCeleb.imageurl} name={randomCeleb.name}/>
                 <TimerDisplay />
             </TopHalf>
             <BottomHalf>
-                <Choices />
+                <Choices handleChoice={handleChoice}/>
             </BottomHalf>
         </QuizCardHolder>
     );
