@@ -12,10 +12,8 @@ const StyledButton = styled.button`
      color:  #F2EDD8; 
 `;
 
-export default function AliveButton() {
-    const [aliveScore, updateAliveScore] = useState(0)
-
+export default function AliveButton({handleChoice}){
     return (
-        <StyledButton onClick={() => updateAliveScore(aliveScore + 1)}>Alive</StyledButton>
+        <StyledButton onClick={() => handleChoice("false")}><h3>Alive</h3></StyledButton>
     )
 }

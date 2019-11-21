@@ -1,5 +1,4 @@
-import React, {useEffect, useState} from 'react';
-import {Route, Link} from 'react-router-dom';
+import React from 'react';
 import styled from 'styled-components';
 import ScoreValue from './ScoreValue/ScoreValue';
 
@@ -17,12 +16,12 @@ const ScoreContainer = styled.div`
     font-family: 'Lobster', cursive;    
 `;
 
-export default function ScoreDisplay(){
+export default function ScoreDisplay({score}){
     
     return(
         <ScoreContainer>
             <h3>Score:</h3>
-            <ScoreValue />
+            <ScoreValue score={score}/>
         </ScoreContainer>
     )
 }
