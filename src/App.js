@@ -96,8 +96,8 @@ class App extends React.Component {
         <Route path="/quizpage">
           {renderQuizCard()}
         </Route>
-        <Route path="finalpage">
-  
+        <Route path="/finalpage">
+          <Final />
         </Route>
   
       </div>
