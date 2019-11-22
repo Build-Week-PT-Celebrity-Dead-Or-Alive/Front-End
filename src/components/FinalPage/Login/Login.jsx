@@ -29,11 +29,12 @@ const StyledInput = styled("input")`
 `;
 
 const StyledButton = styled("button")`
-    margin: 3% 37%;
+    margin: 5% 37%;
     border-radius: 5%;
     width: 26%;
     display: flex;
     justify-content: center;
+    background-color: LightGray;
 `;
 
 
@@ -98,7 +99,7 @@ function Login(props) {
                     type="text"
                     autoComplete="username"
                     name="username"
-                    placeholder="Username"
+                    placeholder=" Username"
                     // Attach these values and the handleChange function to 
                     //    each one of our inputs
                     value={data.username}
@@ -109,7 +110,7 @@ function Login(props) {
                     type="password"
                     autoComplete="current-password"
                     name="password"
-                    placeholder="Password"
+                    placeholder=" Password"
                     // Attach these values and the handleChange function to 
                     //    each one of our inputs
                     value={data.password}
