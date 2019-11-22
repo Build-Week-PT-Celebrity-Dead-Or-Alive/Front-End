@@ -34,7 +34,8 @@ const StyledButton = styled("button")`
     width: 26%;
     display: flex;
     justify-content: center;
-    background-color: LightGray;
+    background-color: #F2EDD8;
+    color: #5D4C46;
 `;
 
 
