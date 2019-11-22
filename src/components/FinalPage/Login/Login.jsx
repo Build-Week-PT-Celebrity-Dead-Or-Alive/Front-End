@@ -1,6 +1,41 @@
 import React, {useState} from "react";
 // Instead of importing axios, we'll import AxiosWithAuth, axios can be removed
 import AxiosWithAuth from '../../../Utilities/AxiosWithAuth';
+import styled from 'styled-components';
+
+const FormStyle = styled.div`
+    background: #44B3C2;
+    margin: 5% auto 0;
+    width: 40%;
+    border: 1px solid black;
+    height: 25%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 34px;
+    font-family: 'Supermercado One', cursive;
+    margin-bottom: 30px;
+    box-shadow: 10px 10px 5px -4px rgba(0,0,0,0.45);
+`;
+
+const StyledP = styled("p")`
+    color: #fff;
+    font-size: 2.1rem;
+    margin-top: 3%;
+`;
+
+const StyledInput = styled("input")`
+    width: 60%;
+    margin: 1%;
+`;
+
+const StyledButton = styled("button")`
+    margin: 3% 37%;
+    border-radius: 5%;
+    width: 26%;
+    display: flex;
+    justify-content: center;
+`;
+
 
 function Login(props) {
     // Set up error state for error component/message
@@ -48,8 +83,9 @@ function Login(props) {
 
 
     return (
-        <>
-            <p>Please login to keep track of your score and compete against other players!</p>  
+        <FormStyle>
+           
+            <StyledP>Please Login</StyledP>  
 
             <form onSubmit={handleSubmit}>
                 {/* Inside the component, we can write a simple ternary that says
@@ -58,7 +94,7 @@ function Login(props) {
                 {error && <div className="error">{error}</div>}
 
                 {/* Create some input fields and a button for the form */}
-                <input 
+                <StyledInput 
                     type="text"
                     autoComplete="username"
                     name="username"
@@ -69,7 +105,7 @@ function Login(props) {
                     onChange={handleChange}
                     />
 
-                <input 
+                <StyledInput 
                     type="password"
                     autoComplete="current-password"
                     name="password"
@@ -79,9 +115,9 @@ function Login(props) {
                     value={data.password}
                     onChange={handleChange}
                     />
-                <button type="submit">Login</button>
+                <StyledButton type="submit">Login</StyledButton>
             </form>
-        </>
+        </FormStyle>
     )
 }
 export default Login;
