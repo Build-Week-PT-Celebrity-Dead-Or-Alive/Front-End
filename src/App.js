@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import { connect } from "react-redux";
 import { Link, Route, withRouter } from 'react-router-dom';
 
 // utilities
@@ -75,35 +76,35 @@ class App extends React.Component {
 
     return (
       <div>
-      <main>
-          <Route exact path="/final" component={Final}/>
-      </main>
-      <div className="App">
-        <nav className="nav-bar">
-          <Link to='/landingpage'>Home</Link>
-          {!this.signedIn && <Link to='/signup'>Sign-Up</Link>}
-          {this.signedIn && <Link to='/account'>My Account</Link>}
-          {!this.signedIn && <Link to='/login'>Login</Link>}
-          <Link to='/logout'>Logout</Link>
-        </nav>
-  
-        <Route exact path='/landingpage' component={LandingPage} />
-        <Route exact path='/signup' component={SignUp} />
-        <ProtectedRoute exact path='/account' component={Account} />
-        <Route exact path='/login' component={Login} />
-        <Route exact path='/logout' component={Logout} />
-  
-        <Route exact path='/' render={(props) =>{
-          return(<LandingPage {...props}/>);
-        }}/>
-        <Route path="/quizpage">
-          {renderQuizCard()}
-        </Route>
-        <Route path="finalpage">
-  
-        </Route>
-  
-      </div>
+        <main>
+            <Route exact path="/final" component={Final}/>
+        </main>
+        <div className="App">
+          <nav className="nav-bar">
+            <Link to='/landingpage'>Home</Link>
+            {!this.signedIn && <Link to='/signup'>Sign-Up</Link>}
+            {this.signedIn && <Link to='/account'>My Account</Link>}
+            {!this.signedIn && <Link to='/login'>Login</Link>}
+            <Link to='/logout'>Logout</Link>
+          </nav>
+    
+          <Route exact path='/landingpage' component={LandingPage} />
+          <Route exact path='/signup' component={SignUp} />
+          <ProtectedRoute exact path='/account' component={Account} />
+          <Route exact path='/login' component={Login} />
+          <Route exact path='/logout' component={Logout} />
+    
+          <Route exact path='/' render={(props) =>{
+            return(<LandingPage {...props}/>);
+          }}/>
+          <Route path="/quizpage">
+            {renderQuizCard()}
+          </Route>
+          <Route path="finalpage">
+    
+          </Route>
+    
+        </div>
       </div>
     );
   }
