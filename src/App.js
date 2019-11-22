@@ -41,17 +41,7 @@ class App extends React.Component {
         })
   }
 
-  // const [celebs, setCelebs] = useState([]);
-
   signedIn = getToken();
-
-  // useEffect(() => {        
-  //   axios.get('https://celeb-death-status.herokuapp.com/api/celebs')
-  //       .then(results => {console.log(results.data)})
-  //       .catch(err => {console.log(`There was an error: ${err}`)})  
-  // }, []);
-
-//  console.log(celebs);
 
   updateScore = () => {
     this.setState({

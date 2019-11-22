@@ -3,7 +3,8 @@ import {Route, Link} from 'react-router-dom';
 import styled from 'styled-components';
 
 const Celeb = styled.div`
-
+    font-family: 'lobster', cursive;
+    color: #E45641;
 `;
 
 const CelebContainer = styled.div`

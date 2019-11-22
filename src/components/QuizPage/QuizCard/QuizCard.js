@@ -6,6 +6,7 @@ import ScoreDisplay from './Score/ScoreDisplay';
 import TimerDisplay from './Timer/TimerDisplay';
 import Celebrity from '../../Celebrity/Celebrity';
 import axios from 'axios';
+import Header from '../../LandingPage/header/Header';
 
 const BottomHalf = styled.div`
     display: flex;
@@ -28,13 +29,14 @@ const QuizCardHolder = styled.div`
     align-items: center;
     justify-content: center;
     margin-top: 80px;
-    border: 1px solid black;
-    width: 80%;
+    border: 2px dashed #F1A94E;
+    width: 70%;
     margin: 0 auto;
     padding: 30px;
     border-radius: 65px;
     height: 80%;
 `;
+
 
 export default function QuizCard({celebs, score, updateScore}){
     const [randomCeleb, setRandomCeleb] = useState({});
@@ -63,6 +65,7 @@ export default function QuizCard({celebs, score, updateScore}){
             <BottomHalf>
                 <Choices handleChoice={handleChoice}/>
             </BottomHalf>
+            <Header />
         </QuizCardHolder>
     );
 }
