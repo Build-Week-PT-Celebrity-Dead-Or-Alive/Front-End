@@ -18,11 +18,11 @@ const TimerContainer = styled.div`
 `;
  
 
-export default function TimerDisplay(){
+export default function TimerDisplay(history){
     return(
         <TimerContainer>
             <h3>Time remaining:</h3>
-            <TimerValue />
+            <TimerValue history={history}/>
         </TimerContainer>
     );
 }
