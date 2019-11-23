@@ -5,10 +5,10 @@ import styled from 'styled-components';
 
 const FormStyle = styled.div`
     background: #44B3C2;
-    margin: 5% auto 0;
+    margin: 5% auto;
     width: 40%;
     border: 1px solid black;
-    height: 25%;
+    height: 28%;
     display: flex;
     flex-direction: column;
     border-radius: 34px;
@@ -29,7 +29,7 @@ const StyledInput = styled("input")`
 `;
 
 const StyledButton = styled("button")`
-    margin: 5% 37%;
+    margin: 2% 37%;
     border-radius: 5%;
     width: 26%;
     display: flex;
