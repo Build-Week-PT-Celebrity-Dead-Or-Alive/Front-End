@@ -4,6 +4,7 @@ import React, { useState } from "react";
 //import axios from "axios";
 
 import AxiosWithAuth from "../../Utilities/AxiosWithAuth";
+import { connect } from "react-redux";
 
 const initialState = {
   name: "",
@@ -55,7 +56,7 @@ const CelebList = ({ celebs, updateCelebs }) => {
       AxiosWithAuth()
         .delete(`protected/celebs/${celeb.id}`)
         .then(result => {
-          console.log(`Celebrity ${id} deleted`);
+          console.log(`Celebrity successfully deleted`);
         })
         .catch(error => {
           throw error;
@@ -80,7 +81,7 @@ const CelebList = ({ celebs, updateCelebs }) => {
 
   return (
     <div className="celebs-wrap">
-      <p>celebs</p>
+      <p>Celebrities</p>
       <ul>
         {celebs.map(celeb => (
           <li key={celeb.celeb} onClick={() => editCeleb(celeb)}>
@@ -91,7 +92,7 @@ const CelebList = ({ celebs, updateCelebs }) => {
                           deleteCeleb(celeb)
                         }
                 }>
-                  x
+                  Delete
               </span>{" "}
                 {celeb.celeb}
               </span>
@@ -104,7 +105,7 @@ const CelebList = ({ celebs, updateCelebs }) => {
       </ul>
       {editing && (
         <form onSubmit={saveEdit}>
-          <legend>edit celeb</legend>
+          <legend>Edit Celebrity</legend>
           <label>
           celeb name:
             <input
@@ -129,7 +130,7 @@ const CelebList = ({ celebs, updateCelebs }) => {
             />
           </label>
           <div className="button-row">
-            <button type="submit">save</button>
+            <button type="submit">Save</button>
             <button onClick={() => setEditing(false)}>cancel</button>
           </div>
         </form>
@@ -151,4 +152,4 @@ const CelebList = ({ celebs, updateCelebs }) => {
   );
 };
 
-export default CelebList;
+export default connect(null, {})(CelebList);
