@@ -36,6 +36,7 @@ const StyledButton = styled("button")`
     justify-content: center;
     background-color: #F2EDD8;
     color: #5D4C46;
+    font-family: 'Lobster', cursive;
 `;
 
 
