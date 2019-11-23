@@ -12,7 +12,7 @@ const FormStyle = styled.div`
     display: flex;
     flex-direction: column;
     border-radius: 34px;
-    font-family: 'Supermercado One', cursive;
+    font-family: 'Sulphur Point', sans-serif;
     margin-bottom: 30px;
     box-shadow: 10px 10px 5px -4px rgba(0,0,0,0.45);
 `;
@@ -21,6 +21,7 @@ const StyledP = styled("p")`
     color: #fff;
     font-size: 2.1rem;
     margin-top: 3%;
+    font-family: 'Supermercado One', cursive;
 `;
 
 const StyledInput = styled("input")`

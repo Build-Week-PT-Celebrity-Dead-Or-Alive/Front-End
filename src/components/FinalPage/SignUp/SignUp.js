@@ -14,7 +14,7 @@ const FormStyle = styled.div`
     display: flex;
     flex-direction: column;
     border-radius: 34px;
-    font-family: 'Supermercado One', cursive;
+    font-family: 'Sulphur Point', sans-serif;    
     margin-bottom: 30px;
     box-shadow: 10px 10px 5px -4px rgba(0,0,0,0.45);
 `;
@@ -23,23 +23,25 @@ const StyledH1 = styled("h1")`
     color: #fff;
     font-size: 2.4rem;
     margin-top: 3%;
+    font-family: 'Supermercado One', cursive;
 `;
 
 const StyledP = styled("p")`
     color: #fff;
-    font-family: 'Satisfy', cursive;
-    font-size: 1.8rem;
+    font-family: 'Sulphur Point', sans-serif;
+    font-size: 1.6rem;
     margin-top: 2%;
 `;
 
 const StyledLabel = styled("label")`
     margin-left: -70%;
     color: #fff;
+    font-family: 'Sulphur Point', sans-serif;
 `;
 
 const StyledInput = styled("input")`
     width: 60%;
-    margin: -2% auto 1% -25%;
+    margin: -3% auto 3% -25%;
 `;
 
 const StyledButton = styled("button")`
