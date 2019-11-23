@@ -50,7 +50,7 @@ class App extends React.Component {
   }
 
   render() {
-    let renderQuizCard = () => {
+    let renderQuizCard = (history) => {
       if(!this.state.celebs.length){
         return(
           <p>Loading...</p>
@@ -58,7 +58,7 @@ class App extends React.Component {
       }
       else {
         return(
-          <QuizCard celebs={this.state.celebs} score={this.state.score} updateScore={this.updateScore}/>
+          <QuizCard celebs={this.state.celebs} score={this.state.score} updateScore={this.updateScore} history={history}/>
         );
       }
     }
@@ -86,11 +86,12 @@ class App extends React.Component {
         <Route exact path='/' render={(props) =>{
           return(<LandingPage {...props}/>);
         }}/>
-        <Route path="/quizpage">
-          {renderQuizCard()}
-        </Route>
+        <Route path="/quizpage" render={(props) =>{
+          console.log(props.history);
+          return renderQuizCard(props.history);
+        }}/>
         <Route path="/finalpage">
-          <Final />
+          <Final score={this.state.score}/>
         </Route>
   
       </div>

@@ -38,7 +38,7 @@ const QuizCardHolder = styled.div`
 `;
 
 
-export default function QuizCard({celebs, score, updateScore}){
+export default function QuizCard({celebs, score, updateScore, history}){
     const [randomCeleb, setRandomCeleb] = useState({});
 
     useEffect(() => {
@@ -60,7 +60,7 @@ export default function QuizCard({celebs, score, updateScore}){
             <TopHalf>
                 <ScoreDisplay score={score}/>
                 <Celebrity imageurl={randomCeleb.imageurl} name={randomCeleb.name}/>
-                <TimerDisplay />
+                <TimerDisplay history={history}/>
             </TopHalf>
             <BottomHalf>
                 <Choices handleChoice={handleChoice}/>
