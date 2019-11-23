@@ -152,4 +152,23 @@ const CelebList = ({ celebs, updateCelebs }) => {
   );
 };
 
-export default connect(null, {})(CelebList);
+function mapStateToProps(state) {
+  return {
+      celeb: state.celeb,
+      error: state.error,
+  };
+}
+
+export default connect(mapStateToProps, {})(CelebList);
+
+ 
+
+// const mapDispatchToProps = {
+//     addCeleb,
+//     removeCeleb
+// };
+
+// export default connect(
+//     mapStateToProps,
+//     mapDispatchToProps
+// )(App)

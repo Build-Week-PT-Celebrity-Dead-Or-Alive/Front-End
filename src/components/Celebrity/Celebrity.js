@@ -3,6 +3,9 @@ import {Route, Link} from 'react-router-dom';
 import styled from 'styled-components';
 //import CelebList from "../Celebrity/CelebList";
 
+// import { connect } from "react-redux";
+// import { addCeleb, removeCeleb } from "./actions/actions";
+
 const Celeb = styled.div`
 
 `;
@@ -26,3 +29,4 @@ export default function Celebrity({name, imageurl}){
         </CelebContainer>
     );
 }
+
