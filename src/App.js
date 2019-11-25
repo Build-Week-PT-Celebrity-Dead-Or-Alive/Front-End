@@ -15,7 +15,7 @@ import Logout from './components/FinalPage/Logout';
 import Users from './components/Admin/Users';
 import CelebList from './components/Celebrity/CelebList';
 import UpdateCeleb from './components/Celebrity/UpdateCeleb';
-import FinalPage from './components/FinalPage/FinalPage';
+import Final from './components/FinalPage/FinalPage';
 import QuizCard from './components/QuizPage/QuizCard/QuizCard';
 
 import './App.css';
@@ -85,10 +85,7 @@ class App extends React.Component {
         <ProtectedRoute exact path='/celebs/:id' component={UpdateCeleb} />
         <Route exact path='/login' component={Login} />
         <Route exact path='/logout' component={Logout} />
-  
-        <Route exact path='/' render={(props) =>{
-          return(<LandingPage {...props}/>);
-        }}/>
+        
         <Route path="/quizpage" render={(props) =>{
           console.log(props.history);
           return renderQuizCard(props.history);
