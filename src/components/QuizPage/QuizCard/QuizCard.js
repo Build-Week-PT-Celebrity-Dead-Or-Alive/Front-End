@@ -1,11 +1,9 @@
 import React, {useEffect, useState} from 'react';
-import {Route, Link} from 'react-router-dom';
 import styled from 'styled-components';
 import Choices from './Choices/Choices';
 import ScoreDisplay from './Score/ScoreDisplay';
 import TimerDisplay from './Timer/TimerDisplay';
 import Celebrity from '../../Celebrity/Celebrity';
-import axios from 'axios';
 import Header from '../../LandingPage/header/Header';
 
 const BottomHalf = styled.div`
