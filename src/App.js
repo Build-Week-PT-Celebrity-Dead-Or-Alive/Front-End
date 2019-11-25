@@ -42,17 +42,7 @@ class App extends React.Component {
         })
   }
 
-  // const [celebs, setCelebs] = useState([]);
-
   signedIn = getToken();
-
-  // useEffect(() => {        
-  //   axios.get('https://celeb-death-status.herokuapp.com/api/celebs')
-  //       .then(results => {console.log(results.data)})
-  //       .catch(err => {console.log(`There was an error: ${err}`)})  
-  // }, []);
-
-//  console.log(celebs);
 
   updateScore = () => {
     this.setState({
@@ -61,7 +51,7 @@ class App extends React.Component {
   }
 
   render() {
-    let renderQuizCard = () => {
+    let renderQuizCard = (history) => {
       if(!this.state.celebs.length){
         return(
           <p>Loading...</p>
@@ -69,7 +59,7 @@ class App extends React.Component {
       }
       else {
         return(
-          <QuizCard celebs={this.state.celebs} score={this.state.score} updateScore={this.updateScore} />
+          <QuizCard celebs={this.state.celebs} score={this.state.score} updateScore={this.updateScore} history={history}/>
         );
       }
     }
@@ -96,11 +86,15 @@ class App extends React.Component {
         <Route exact path='/login' component={Login} />
         <Route exact path='/logout' component={Logout} />
   
-        <Route path="/quizpage">
-          {renderQuizCard()}
-        </Route>
-        <Route path="finalpage">
-
+        <Route exact path='/' render={(props) =>{
+          return(<LandingPage {...props}/>);
+        }}/>
+        <Route path="/quizpage" render={(props) =>{
+          console.log(props.history);
+          return renderQuizCard(props.history);
+        }}/>
+        <Route path="/finalpage">
+          <Final score={this.state.score}/>
         </Route>
       </div>
     );

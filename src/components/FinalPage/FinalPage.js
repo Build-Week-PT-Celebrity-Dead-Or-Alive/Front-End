@@ -2,11 +2,11 @@ import React from 'react';
 import Content from './FinalContent';
 
 
-function Final () {
+function Final (score) {
     
     return ( 
         <div>
-        <Content/>
+        <Content score={score}/>
         </div>
     );
 }

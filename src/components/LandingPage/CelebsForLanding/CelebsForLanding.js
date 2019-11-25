@@ -4,7 +4,9 @@ import styled from 'styled-components';
 import axios from 'axios';
 
 const Celeb = styled.div`
-
+    font-family: 'lobster', cursive;
+    margin-top: 2px;
+    color: #E45641;
 `;
 
 const CelebContainer = styled.div`
@@ -12,23 +14,6 @@ const CelebContainer = styled.div`
     flex-direction: row;
     justify-content: space-evenly;
 `;
-
-/*
-            <Celeb>
-                <h3>{celebs[0].name}</h3>
-                <img src={celebs[0].imageurl}/>
-            </Celeb>
-            
-            <Celeb>
-                <h3>{celebs[1].name}</h3>
-                <img src={celebs[1].imageurl}/>
-            </Celeb>
-            
-            <Celeb>
-                <h3>{celebs[2].name}</h3>
-                <img src={celebs[2].imageurl}/>
-            </Celeb>
-*/
 
 
 //http://celeb-death-status.herokuapp.com/api/celebs
