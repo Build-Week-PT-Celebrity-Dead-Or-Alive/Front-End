@@ -1,5 +1,5 @@
 import React from 'react';
-import {Route, Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 // import Form from './LoginForm'
 import Login from "./Login/Login";
@@ -33,14 +33,14 @@ const Main=styled.div`
 `;
 
 const Content = (score)=> {
-    console.log(score);
+    // console.log(score);
     return ( 
         <Body>
             <Main>
                 <Head/>
                 <h1>You scored<br/>{score.score.score}</h1>
                 <h2>Sign up or log in to keep your score</h2>
-                <Login/>
+                <Login />
                 <Link to="/quizpage" className="try-again-button">Try Again!</Link>
             </Main>
         </Body>

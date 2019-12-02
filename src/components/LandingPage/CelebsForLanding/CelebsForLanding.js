@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react';
-import {Route, Link} from 'react-router-dom';
 import styled from 'styled-components';
 import axios from 'axios';
 
@@ -35,7 +34,7 @@ export default function CelebsForLanding(props){
                 return(
                     <Celeb>
                         <h3>{celeb.name}</h3>
-                        <img src={celeb.imageurl}/>
+                        <img src={celeb.imageurl} alt='' />
                     </Celeb> 
                 )
             })}

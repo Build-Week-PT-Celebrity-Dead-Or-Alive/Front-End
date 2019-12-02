@@ -74,10 +74,10 @@ function Login(props) {
                 localStorage.setItem("token", result.data.token)
 
                 // Redirect the user to their account page after logging in
-                props.history.push("/account")
+                props.history.push("/")
             })
             .catch(error => {
-                setError(error.response.data.message)
+                setError(error.response.data)
             })
     }
 

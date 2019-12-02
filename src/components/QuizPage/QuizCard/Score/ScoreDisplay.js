@@ -1,5 +1,4 @@
-import React, {useEffect, useState} from 'react';
-import {Route, Link} from 'react-router-dom';
+import React from 'react';
 import styled from 'styled-components';
 import ScoreValue from './ScoreValue/ScoreValue';
 

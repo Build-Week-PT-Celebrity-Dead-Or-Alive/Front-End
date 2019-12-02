@@ -1,5 +1,4 @@
-import React, {useEffect, useState} from 'react';
-import {Route, Link} from 'react-router-dom';
+import React from 'react';
 import styled from 'styled-components';
 
 const StyledButton = styled.button`
@@ -11,7 +10,6 @@ const StyledButton = styled.button`
      height: 50px;
      color:  #F2EDD8; 
 `;
-
 
 export default function DeadButton({handleChoice}){
     return(

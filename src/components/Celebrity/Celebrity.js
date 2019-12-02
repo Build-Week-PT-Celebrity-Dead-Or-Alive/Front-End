@@ -1,5 +1,4 @@
-import React, {useEffect, useState} from 'react';
-import {Route, Link} from 'react-router-dom';
+import React from 'react';
 import styled from 'styled-components';
 
 const Celeb = styled.div`
@@ -21,7 +20,7 @@ export default function Celebrity({name, imageurl}){
         <CelebContainer>
             <Celeb>
                 <h3>{name}</h3>
-                <img src={imageurl}/>
+                <img src={imageurl} alt='' />
             </Celeb> 
         </CelebContainer>
     );

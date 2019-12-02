@@ -2,11 +2,12 @@ import React, { useState, useEffect } from "react";
 // Instead of importing axios, we'll import AxiosWithAuth, axios can
 //   be removed
 import AxiosWithAuth from '../../../Utilities/AxiosWithAuth';
+import UpdateScore from '../../QuizPage/QuizCard/Score/UpdateScore';
 
 // Start your new function and export it
 function Account(props) {
 	// Create initial State with useState
-	const [user, setUser] = useState({})
+	// const [user, setUser] = useState({})
 
 	const [users, setUsers] = useState([])
 
@@ -37,6 +38,7 @@ function Account(props) {
 									<div key={user.id}className="user">
 											<div className="account-row">Username: {user.username}</div>
 											<div className="account-row">Score: {user.score}</div>
+											<UpdateScore />
 											{/* trying to sort scores by highest to lowest */}
 											{/* <div className='user-score'>Score: {user.score.sort((a, b) => b - a).join(', ')}</div> */}
 									</div>
