@@ -1,29 +1,44 @@
 import React, { useState, useEffect } from 'react';
-import AxiosWithAuth from '../../Utilities/AxiosWithAuth';
+import AxiosWithAuth from '../../../../Utilities/AxiosWithAuth';
 
-export default function UpdateCeleb(props) {
-  console.log('CELEB PROPS', props)
-  const [userScore, updateUserScore] = useState(0)
+export default function UpdateScore(props) {
+  console.log('UPDATE PROPS', props)
+  const [userScore, updateUserScore] = useState({
+    id: '',
+    username: '',
+    score: ''
+  })
 
   useEffect(() => {
     AxiosWithAuth()
-      .get(`/users/${props.match.params.id}`)
+      .get(`/protected/users/${props.match.params.id}`)
       .then(result => {
-        setUserScore(result.data)
+        updateUserScore({
+          username: result.data.username,
+          score: result.data.score
+        })
       })
       .catch(error => {
         console.log('Error', error)
       })
   }, [props.match.params.id])
 
+  const handleChange = e => {
+    updateUserScore({
+      ...userScore,
+      [e.target.name]: e.target.value 
+    })
+  }
 
-  const handleSubmit = (event) => {
-    event.preventDefault()
+  const handleUpdate = e => {
+    e.preventDefault()
 
     AxiosWithAuth()
-      .put(`/users/${userScore.id}`, userScore)
+      .put(`/protected/users/${userScore.id}`, userScore)
       .then(result => {
-        props.history.push('/score')
+        props.history.push('/protected/users')
+        console.log('Score was updated!')
+        // updateUserScore(userScore.filter(user => user.id !== id))
       })
       .catch(error => {
         console.log('Error', error)
@@ -32,6 +47,22 @@ export default function UpdateCeleb(props) {
 
   return (
     <>
-    </>
+      <p>Update score</p>
+      <form onSubmit={handleUpdate}>
+        <p>{userScore.username}</p>
+        <input
+          type='number'
+          name='update score'
+          placeholder='Update Score'
+          value={userScore.score} 
+          onChange={handleChange}
+        />
+        <button 
+          className='update-score'
+          type='submit'>
+            Update
+        </button>
+      </form>
+  </>
   )
 }

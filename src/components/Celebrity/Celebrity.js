@@ -20,7 +20,7 @@ export default function Celebrity({name, imageurl}){
         <CelebContainer>
             <Celeb>
                 <h3>{name}</h3>
-                <img src={imageurl}/>
+                <img src={imageurl} alt='' />
             </Celeb> 
         </CelebContainer>
     );

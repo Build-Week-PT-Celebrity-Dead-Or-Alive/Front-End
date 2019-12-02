@@ -3,6 +3,7 @@ import AxiosWithAuth from '../../Utilities/AxiosWithAuth';
 
 export default function Users(props) {
   const [users, setUsers] = useState([])
+  
 
   useEffect(() => {
     AxiosWithAuth()
@@ -41,13 +42,13 @@ export default function Users(props) {
         <div 
           key={user.id} 
           className="user-list">
+          <div className='users-name'>Name: {user.username}</div>
+          <div className='users-score'>Score: {user.score}</div>
           <button 
             className='user-delete' 
             onClick={(e) => handleDelete(e, user.id)}>
               Delete
           </button>
-          <div className='users-name'>Name: {user.username}</div>
-          <div className='users-pw'>Password: {user.password}</div>
         </div>
       ))}
     </>

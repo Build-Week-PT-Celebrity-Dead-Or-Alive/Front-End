@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import AxiosWithAuth from '../../Utilities/AxiosWithAuth';
 
 export default function UpdateCeleb(props) {
-  console.log('CELEB PROPS', props)
+  // console.log('CELEB PROPS', props)
   const [celeb, setCeleb] = useState({
     dead: '',
     id: ''

@@ -4,5 +4,5 @@ import { Redirect } from 'react-router-dom';
 export default function Logout() {
   localStorage.removeItem('token')
 
-  return <Redirect to='landingpage' /> 
+  return <Redirect to='/' /> 
 };

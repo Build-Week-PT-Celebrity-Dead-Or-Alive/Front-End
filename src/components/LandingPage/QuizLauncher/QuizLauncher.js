@@ -1,5 +1,4 @@
-import React, {useEffect, useState} from 'react';
-import {Route, Link} from 'react-router-dom';
+import React from 'react';
 import styled from 'styled-components';
 
 // Written by Gabe Lopez
@@ -20,7 +19,7 @@ const Text = styled.h3`
 
 export default function QuizLauncher(props){
     const routeToQuiz = () => {
-        props.history.push('/QuizPage');
+        props.history.push('/quizpage');
     }
 
     return(
