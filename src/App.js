@@ -22,7 +22,6 @@ import QuizCard from './components/QuizPage/QuizCard/QuizCard';
 // state management
 import { UserContext } from './context/UserContext';
 import { CelebrityContext } from './context/CelebrityContext';
-import { UpdateCelebContext } from './context/UpdateCelebContext';
 
 import './App.css';
 import './Fonts.css';

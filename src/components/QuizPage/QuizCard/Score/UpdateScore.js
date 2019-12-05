@@ -13,10 +13,7 @@ export default function UpdateScore(props) {
     AxiosWithAuth()
       .get(`/protected/users/${props.match.params.id}`)
       .then(result => {
-        updateUserScore({
-          username: result.data.username,
-          score: result.data.score
-        })
+        updateUserScore(result.data)
       })
       .catch(error => {
         console.log('Error', error)
@@ -37,7 +34,7 @@ export default function UpdateScore(props) {
       .put(`/protected/users/${userScore.id}`, userScore)
       .then(result => {
         props.history.push('/protected/users')
-        console.log('Score was updated!')
+        console.log('Score was updated!', result.data)
         // updateUserScore(userScore.filter(user => user.id !== id))
       })
       .catch(error => {
