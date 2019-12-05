@@ -30,10 +30,6 @@ const App = (props) => {
   const [celebs, setCelebs] = useState([])
   const [score, setScore] = useState(0)
   const [users, setUsers] = useState([])
-  const [celeb, setCeleb] = useState({
-    dead: '',
-    id: ''
-  })
 
   // getting data
   useEffect(() => {
