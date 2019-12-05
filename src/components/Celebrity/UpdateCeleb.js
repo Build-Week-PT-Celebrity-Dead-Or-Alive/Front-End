@@ -1,7 +1,5 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import AxiosWithAuth from '../../Utilities/AxiosWithAuth';
-import { UpdateCelebContext } from '../../context/UpdateCelebContext';
-
 
 export default function UpdateCeleb(props) {
   const [celeb, setCeleb] = useState({
@@ -45,13 +43,13 @@ export default function UpdateCeleb(props) {
     <>
       <h1>Update Celebrity</h1>
 
-        <form onSubmit={handleUpdateSubmit}>
+        <form onSubmit={handleSubmit}>
           <p>Name: {celeb.name}</p>
           <input 
             type='text'
             name='dead'
             value={celeb.dead}
-            onChange={handleUpdateChange}
+            onChange={handleChange}
           />
 
           <button type='submit'>Update</button>
