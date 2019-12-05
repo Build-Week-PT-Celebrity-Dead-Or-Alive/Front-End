@@ -12,20 +12,17 @@ export default function UpdateCeleb(props) {
     AxiosWithAuth()
       .get(`/celebs/${props.match.params.id}`)
       .then(result => {
-        setCeleb({
-          name: result.data.name,
-          dead: result.data.dead
-        })
+        setCeleb(result.data)
       })
       .catch(error => {
-        console.log('Error', error)
+        console.log('Error', error.response)
       })
   }, [props.match.params.id])
 
   const handleChange = (event) => {
     setCeleb({
       ...celeb,
-      [event.target.name]: event.target.value
+      [event.target.name]: event.target.value,
     })
   }
 
@@ -33,8 +30,9 @@ export default function UpdateCeleb(props) {
     event.preventDefault()
 
     AxiosWithAuth()
-      .put(`/celebs/${celeb.id}`, celeb)
+      .put(`/protected/celebs/${celeb.id}`, celeb)
       .then(result => {
+        console.log('UPDATE CELEB', result.data)
         props.history.push('/celebs')
       })
       .catch(error => {
@@ -51,12 +49,11 @@ export default function UpdateCeleb(props) {
           <input 
             type='text'
             name='dead'
-            placeholder='Dead?'
             value={celeb.dead}
             onChange={handleChange}
           />
 
-          <button type='submit'>Save</button>
+          <button type='submit'>Update</button>
         </form>
     </>
   )

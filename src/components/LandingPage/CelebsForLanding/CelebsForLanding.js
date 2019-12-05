@@ -32,7 +32,7 @@ export default function CelebsForLanding(props){
         <CelebContainer>
             {celebs.map(celeb => {
                 return(
-                    <Celeb>
+                    <Celeb key={celeb.id}>
                         <h3>{celeb.name}</h3>
                         <img src={celeb.imageurl} alt='' />
                     </Celeb> 

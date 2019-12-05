@@ -1,38 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import AxiosWithAuth from '../../Utilities/AxiosWithAuth';
+import React, { useContext } from 'react';
 
-export default function Users(props) {
-  const [users, setUsers] = useState([])
-  
+// context
+import { UserContext } from '../../context/UserContext';
 
-  useEffect(() => {
-    AxiosWithAuth()
-      .get('/protected/users')
-      .then(result => {
-        console.log('USERS RESULT', result)
-        setUsers(result.data)
-      })
-      .catch(error => {
-        console.log('Users Error', error)
-      })
-  }, [])
-
-  const handleDelete = (e, id) => {
-    e.preventDefault()
-
-    if(window.confirm('Are you sure you want to delete this user?')) {
-
-      AxiosWithAuth()
-      .delete(`/protected/users/${id}`)
-      .then(result => {
-        console.log('User was deleted!')
-        setUsers(users.filter(user => user.id !== id))
-      })
-      .catch(error => {
-        console.log('DELETE ERROR', error)
-      })
-    }
-  }
+export default function Users() {
+  const {users, handleUserDelete} = useContext(UserContext)
 
   return (
     <>
@@ -46,7 +18,7 @@ export default function Users(props) {
           <div className='users-score'>Score: {user.score}</div>
           <button 
             className='user-delete' 
-            onClick={(e) => handleDelete(e, user.id)}>
+            onClick={(e) => handleUserDelete(e, user.id)}>
               Delete
           </button>
         </div>

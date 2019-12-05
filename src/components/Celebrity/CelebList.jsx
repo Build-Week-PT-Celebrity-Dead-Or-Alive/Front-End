@@ -1,11 +1,32 @@
 // Update or Delete Celebrity
-
-import React, { useState, useEffect } from "react";
+import React, { useContext } from "react";
 //import axios from "axios";
 import { Link } from 'react-router-dom';
-import AxiosWithAuth from "../../Utilities/AxiosWithAuth";
+import { CelebrityContext } from '../../context/CelebrityContext';
 
-// const initialState = {
+const CelebList = () => {
+  const {celebs, handleCelebDelete } = useContext(CelebrityContext)
+  // console.log('CELEBS', celebs)
+
+  return (
+    <>
+      <h1>Celebrities</h1>
+
+      {celebs.map(celeb => (
+        <div key={celeb.id} className='celebs'>
+          <Link className='celeb-update' to={`/celebs/${celeb.id}`}>Edit</Link>
+          <button className='celeb-delete' onClick={(e) => handleCelebDelete(e, celeb.id)}>Delete</button>
+          <div className='celeb-name'>Name: {celeb.name}</div>
+          <div className='celeb-dead'>Dead?: {celeb.dead}</div>
+        </div>
+      ))}
+    </>
+  )
+};
+
+export default CelebList;
+
+//// const initialState = {
 //   name: "",
 //   imageurl: "",
 //   info: "",
@@ -150,50 +171,3 @@ import AxiosWithAuth from "../../Utilities/AxiosWithAuth";
 //     </div>
 //   );
 // };
-
-const CelebList = (props) => {
-  const [celebs, setCelebs] = useState([])
-
-  useEffect(() => {
-    AxiosWithAuth()
-      .get('/celebs')
-      .then(result => {
-        // console.log('GET CELEB LIST', result.data)
-        setCelebs(result.data)
-      })
-      .catch(error => {
-        console.log(error)
-      })
-  }, [])
-
-  const handleDelete = (event, id) => {
-    event.preventDefault()
-
-    AxiosWithAuth()
-      .delete(`/protected/celebs/${id}`)
-      .then(result => {
-        console.log('User was deleted!')
-        setCelebs(celebs.filter(user => user.id !== id))
-      })
-      .catch(error => {
-        console.log('Error', error)
-      })
-  }
-
-  return (
-    <>
-      <h1>Celebrities</h1>
-
-      {celebs.map(celeb => (
-        <div key={celeb.id} className='celebs'>
-          <Link className='celeb-update' to={`/celebs/${celeb.id}`}>Edit</Link>
-          <button className='celeb-delete' onClick={(e) => handleDelete(e, celeb.id)}>Delete</button>
-          <div className='celeb-name'>Name: {celeb.name}</div>
-          <div className='celeb-dead'>Dead?: {celeb.dead}</div>
-        </div>
-      ))}
-    </>
-  )
-};
-
-export default CelebList;
